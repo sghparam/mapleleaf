@@ -9,7 +9,7 @@ class DataObject {
       
     }
   
-  /**
+     /**
      * Method to check if the table used in query exists
      * 
      * @return boolean
