@@ -9,39 +9,39 @@ class Database{
 	private static $connection; 
 	private $result = array(); 
 	
-    /**
-     * Constructor.
-     * Private function to be called internally.
-     */
+ /**
+  * Constructor.
+  * Private function to be called internally.
+  */
       
 	private function __construct()
 	{
 		
-      $this->connection = mysql_connect($this->db_host,$this->db_user,$this->db_pass);
-      
-      if ($this->connection) {
-        return mysql_select_db($this->db_name, $this->connection);
-      } else {
-        return false;
-      }
+   $this->connection = mysql_connect($this->db_host,$this->db_user,$this->db_pass);
+   
+   if ($this->connection) {
+     return mysql_select_db($this->db_name, $this->connection);
+   } else {
+     return false;
+   }
         
 	}
     
-    /**
-     * Set connection. Singlton to return database connection
-     * 
-     * @return mixed
-     */
+ /**
+  * Set connection. Singlton to return database connection
+  * 
+  * @return mixed
+  */
     
     
-    public static function setConnection () {
+ public static function setConnection () {
       
-      if (!self::$connection) {
-          self::$connection = new Database;
-      }
-      
-      return self::$connection;
-    }
+   if (!self::$connection) {
+     self::$connection = new Database;
+   }
+   
+   return self::$connection;
+ }
 	
 	
     

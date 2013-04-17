@@ -32,23 +32,23 @@ class Interfax{
 	* Constructor.
 	*/
 	public function __construct()
-    {  
+ {  
 		
 	  if ($this->checkWsdlUri($this->wsdl_remote_uri)) {
 	  
-        $this->soap=new SoapClient($this->wsdl_remote_uri,
-        array(
-         'soap_version'       => SOAP_1_2, 
-         'exceptions'         => 0,
-         'connection_timeout' => 20,
-         'trace'              => TRUE,
-        ));
-		
-      } else {
-        return false;
-      }
+     $this->soap=new SoapClient($this->wsdl_remote_uri,
+     array(
+      'soap_version'       => SOAP_1_2, 
+      'exceptions'         => 0,
+      'connection_timeout' => 20,
+      'trace'              => TRUE,
+     ));
+
+   } else {
+     return false;
+   }
 	
-    }
+ }
 	
 	/*
 	* Check if the wsdl is valid.
@@ -61,12 +61,12 @@ class Interfax{
 	{
 	  $valid = true;
 		
-      if (!http_request(HTTP_METH_PUT, $uri)) {
-        $this->wsdl_error = "Web service is currently not available.\n";
-        $valid = false;
-      } 
+   if (!http_request(HTTP_METH_PUT, $uri)) {
+     $this->wsdl_error = "Web service is currently not available.\n";
+     $valid = false;
+   } 
 
-      return $valid ;
+   return $valid ;
 	}
 	
 	/*
